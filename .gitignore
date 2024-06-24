@@ -1,0 +1,10 @@
+/extracted/
+/.github/
+/.pytest_cache/
+/venv/
+**/__pycache__/
+**.apk
+/.idea
+**.cache
+**.js
+**.idsig
