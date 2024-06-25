@@ -1,10 +1,10 @@
 import argparse
 import os
+from timeit import default_timer
+from pyaxmlparser import APK
 from termcolor import cprint
 from iappatcher_patcher.extractor import Extractor
 from iappatcher_patcher.patcher import Patcher
-from timeit import default_timer
-from pyaxmlparser import APK
 
 
 def main():

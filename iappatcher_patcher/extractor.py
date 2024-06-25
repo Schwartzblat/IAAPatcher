@@ -6,6 +6,7 @@ from termcolor import cprint
 import zipfile
 from pyaxmlparser import APK
 
+
 class Extractor:
     def __init__(self, path: str, output_path: str, temp_path: str = "./extracted"):
         self.apk_path = path
@@ -60,7 +61,7 @@ class Extractor:
 
     def sign_apk(self):
         uber_signer = (
-            pathlib.Path(__file__).parent.parent / "bin" / "uber-apk-signer-1.3.0.jar"
+                pathlib.Path(__file__).parent.parent / "bin" / "uber-apk-signer-1.3.0.jar"
         )
         command = [
             "java",

@@ -1,12 +1,11 @@
 import pathlib
-
-from termcolor import cprint
+import importlib
 import os
 import re
 import glob
 from hashlib import md5
 from typing import Callable
-import importlib
+from termcolor import cprint
 from iappatcher_patcher.extractor import Extractor
 
 exclude_imports = ["__init__.py", "Patch.py"]

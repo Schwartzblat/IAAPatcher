@@ -1,9 +1,10 @@
-from iappatcher_patcher.patches.Patch import Patch
 import re
+from iappatcher_patcher.patches.Patch import Patch
 
 
 class SignaturePatch(Patch):
-    SIGNATURE_FUNCTION_RE = re.compile('\.method public static \w+\(Ljava/lang/String;Ljava/lang/String;\)Z\s+[^\n]+\n(.*?)\.end method', re.DOTALL)
+    SIGNATURE_FUNCTION_RE = re.compile(
+        '\.method public static \w+\(Ljava/lang/String;Ljava/lang/String;\)Z\s+[^\n]+\n(.*?)\.end method', re.DOTALL)
 
     def __init__(self, extracted_path):
         super().__init__(extracted_path)

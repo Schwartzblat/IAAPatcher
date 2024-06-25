@@ -1,12 +1,11 @@
-from iappatcher_patcher.patches.Patch import Patch
 import re
+from iappatcher_patcher.patches.Patch import Patch
 
 
 class SaveDetails(Patch):
     SET_SKU_DETAILS = re.compile(
         '.method public.*<init>\(L.*;ILjava/lang/String;Ljava/lang/String;L.*;Landroid/os/Bundle;\)V\s.*\n')
 
-    # SET_SKU_DETAILS = re.compile(" public \w+\(L[^;]*SkuDetails;.*?line 1\n", re.DOTALL)
     FIELD_RE = re.compile('\.field .*;\n')
 
     FIELD_NAME = 'product_id'
@@ -38,14 +37,6 @@ class SaveDetails(Patch):
         )
 
         set_sku_details = self.SET_SKU_DETAILS.findall(class_data)[0]
-
-        # new_set_sku_details = set_sku_details + f"""
-        # invoke-virtual {{p1}}, Lcom/android/billingclient/api/SkuDetails;->getSku()Ljava/lang/String;
-        #
-        # move-result-object v0
-        #
-        # sput-object v0, {classpath};->{self.FIELD_NAME}:Ljava/lang/String;
-        # """
 
         new_set_sku_details = set_sku_details + f"""
         sput-object p3, {classpath};->{self.FIELD_NAME}:Ljava/lang/String;

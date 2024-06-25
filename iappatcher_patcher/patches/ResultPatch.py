@@ -2,6 +2,7 @@ import re
 from iappatcher_patcher.patches.Patch import Patch
 from iappatcher_patcher.patches.SaveDetails import SaveDetails
 
+
 class ResultPatch(Patch):
     ON_ACTIVITY_RESULT_RE = re.compile(
         "\.method.*onActivityResult\(IILandroid/content/Intent;\)V\s+.*\n"
